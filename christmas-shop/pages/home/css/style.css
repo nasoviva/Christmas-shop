@@ -7,7 +7,8 @@
 :root {
     --primary-color: #FF4646;
     --secondary-color: #FFFFFF;
-    --font-family: 'Montserrat', sans-serif;
+    --font-family-primary: 'Montserrat', sans-serif;
+    --font-family-secondary: 'Allura', sans-serif;
 }
 
 html {
@@ -16,14 +17,13 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     line-height: 148%;
     color: #181C29;
     background-color: var(--secondary-color);
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     text-align: center;
 }
 
@@ -42,6 +42,20 @@ h1 {
     line-height: 150%;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+}
+
+.hero-button {
+    padding: 20px 32px;
+    color: #FFFFFF;
+    background-color: #181C29;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    width: 236px;
 }
 
 .container {
@@ -66,6 +80,7 @@ h1 {
     font-weight: 600;
     line-height: 130%;
     letter-spacing: 0.05em;
+    padding: 12px 0;
 }
 
 .logo-link {
@@ -73,6 +88,10 @@ h1 {
     justify-content: space-between;
     gap: 8px;
     padding: 8px 20px;
+}
+
+.logo-title {
+    padding: 4px 0;
 }
 
 .nav-list {
@@ -86,14 +105,76 @@ h1 {
 }
 
 .hero {
-    background-image: url(../../../assets/images/hero_background.png);
+    background-image: url(../../../assets/images/bg-ball.png), url(../../../assets/images/bg-snow.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     padding: 60px 505px;
+    color: #FFFFFF;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.hero-div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     gap: 12px;
-    color: #FFFFFF;
-
+    padding: 60px 0;
 }
+
+.allura-font {
+    font-family: var(--font-family-secondary);
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    line-height: 100%;
+}
+
+.about {
+    background-image: url(../../../assets/images/bg-snow.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.about-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+image {
+    width: 100%;
+    height: auto;
+}
+
+.about-image {
+    width: 638px;
+    height: 528px;
+}
+
+.about-text {
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.about-title {
+    color: var(--primary-color);
+}
+
+.about-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 152%;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
