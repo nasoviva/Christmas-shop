@@ -69,7 +69,14 @@ h1 {
 }
 
 .main-container {
+    background-image: url(../../../assets/images/bg-snow.png);
     background-color: var(--primary-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
 }
 
 .nav {
@@ -86,12 +93,10 @@ h1 {
 .logo-link {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 8px;
     padding: 8px 20px;
-}
-
-.logo-title {
-    padding: 4px 0;
+    text-wrap: nowrap;
 }
 
 .nav-list {
@@ -106,10 +111,6 @@ h1 {
 
 .hero {
     background-image: url(../../../assets/images/bg-ball.png), url(../../../assets/images/bg-snow.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding: 60px 505px;
     color: #FFFFFF;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -131,15 +132,6 @@ h1 {
     line-height: 100%;
 }
 
-.about {
-    background-image: url(../../../assets/images/bg-snow.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
 .about-div {
     display: flex;
     justify-content: space-between;
@@ -148,9 +140,10 @@ h1 {
     background-color: #FFFFFF;
 }
 
-image {
+img {
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 .about-image {
@@ -170,11 +163,46 @@ image {
     color: var(--primary-color);
 }
 
-.about-subtitle {
+.subtitle {
     font-size: 24px;
     font-weight: 600;
     line-height: 152%;
     letter-spacing: 0.16em;
     text-transform: uppercase;
 }
+
+.slider-div {
+    color: #FFFFFF;
+
+}
+
+.slider-subtitle {
+    padding: 12px 0 20px 0;
+}
+
+.slider-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.slider-item-text {
+    font-size: 80px;
+    font-weight: 600;
+    line-height: auto;
+    letter-spacing: 0em;
+    text-transform: uppercase;
+}
+
+.slider-item-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+
 
