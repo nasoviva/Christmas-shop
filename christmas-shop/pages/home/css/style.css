@@ -83,7 +83,9 @@ button {
 
 button:hover {
     cursor: pointer;
-    transition: 0.3s;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    transition: 0.5s;
 }
 
 img {
@@ -130,11 +132,20 @@ img {
 .nav-list {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 8px;
 }
 
-.nav-item {
+.nav-link {
     padding: 12px 20px;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    color: var(--color-red);
+    background-color: hsl(0, 100%, 64%, 10%);
+    border-radius: 12px;
+    transition: 0.5s;
 }
 
 /* ======= Main container ======= */
@@ -236,13 +247,6 @@ img {
     gap: 20px;
 }
 
-.paginator img {
-    width: 12px;
-    height: 12px;
-    margin: 6px;
-
-}
-
 .paginator {
     padding: 16px;
     border: 1px var(--color-white) solid;
@@ -253,21 +257,47 @@ img {
     align-items: center;
 }
 
+.paginator-svg {
+    color: var(--color-white);
+}
+
+.prev-paginator .paginator-svg {
+    transform: rotate(180deg);
+}
+
+.paginator:hover {
+    cursor: pointer;
+    background-color: var(--color-white);
+    transition: 0.5s;
+}
+
+.paginator:hover .paginator-svg {
+    color: var(--color-red);
+}
+
+.paginator .inactive .paginator-svg {
+    border: 1px hsl(0, 0%, 100%, 40%) solid;
+    color: hsl(0, 0%, 100%, 40%);
+}
+
+.paginator.inactive {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.paginator.inactive:hover {
+    background-color: inherit;
+    cursor: default;
+}
+
+.paginator.inactive .paginator-svg {
+    color: var(--color-white);
+}
+
 .best-cards {
     display: flex;
     justify-content: space-between;
     gap: 12px;
-}
-
-.best-card {
-    width: 310px;
-    height: 342px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--color-light);
-    color: var(--color-dark);
-    border-radius: 20px;
 }
 
 .best-card-image {
@@ -299,6 +329,27 @@ img {
 
 .best-card:nth-child(4) .best-card-description .best-card-title {
     color: #FF43F7;
+}
+
+.best-card {
+    position: relative;
+    width: 310px;
+    height: 342px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-radius: 20px;
+}
+
+.best-card:hover {
+    cursor: pointer;
+}
+
+.best-card:hover .best-card-subtitle {
+    color: var(--color-red);
+    transition: 0.5s;
 }
 
 /* ======= CTA ======= */
@@ -386,11 +437,22 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-wrap: nowrap;
     gap: 9px;
     background-color: var(--color-light);
     padding: 20px;
     width: 417.33px;
     border-radius: 20px;
+}
+
+.contact-card:hover {
+    cursor: pointer;
+}
+
+.contact-card:hover .contact-name,
+.contact-card:hover .contact-description {
+    color: var(--color-red);
+    transition: 0.5s;
 }
 
 .links {
@@ -409,4 +471,9 @@ img {
 .messenger {
     width: 24px;
     margin: 8px;
+}
+
+.rsschool:hover {
+    color: var(--color-red);
+    transition: 0.5s;
 }
