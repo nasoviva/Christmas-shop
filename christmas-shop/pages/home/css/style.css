@@ -488,3 +488,49 @@ img {
     color: var(--color-red);
     transition: 0.5s;
 }
+
+@media (max-width: 1440px) {
+
+    .container {
+        max-width: 1440px;
+        padding-left: 5.125rem;
+        padding-right: 5.125rem;
+    }
+
+    .about-image {
+        width: 39.875rem;
+        height: 33rem;
+    }
+
+    .contact-card {
+        width: 26.08rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 768px;
+    }
+
+    .best-cards {
+        flex-wrap: wrap;
+    }
+
+    .contact-cards {
+        flex-direction: column;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .container {
+        max-width: 380px;
+    }
+
+    .about-div {
+        flex-direction: column;
+    }
+}
