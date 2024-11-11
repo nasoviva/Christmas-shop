@@ -1,0 +1,334 @@
+/* ======= Global Styles ======= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-red: #FF4646;
+    --color-red-10: hsl(0, 100%, 64%, 10%);
+    --color-dark: #181C29;
+    --color-dark-80: hsl(226, 26%, 13%, 80%);
+    --color-white: #FFFFFF;
+    --color-white-40: hsl(0, 0%, 100%, 40%);
+    --color-white-20: hsl(0, 0%, 100%, 20%);
+    --color-light: #ECF3F8;
+    --color-pink: #FF43F7;
+    --color-green: #06A44F;
+    --color-purple: #4361FF;
+    --font-family-primary: 'Montserrat', sans-serif;
+    --font-family-secondary: 'Allura', sans-serif;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    line-height: 148%;
+    color: var(--color-dark);
+    background-color: var(--color-white);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: var(--font-family-secondary);
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    line-height: 100%;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 152%;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 152%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+button {
+    padding: 20px 32px;
+    color: var(--color-white);
+    background-color: var(--color-dark);
+    border: none;
+    border-radius: 20px;
+    width: 236px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    transition: 0.5s;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.container {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 82px;
+}
+
+.section {
+    width: 100%;
+}
+
+.text {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+}
+
+/* ======= Header ======= */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    text-transform: uppercase;
+}
+
+.logo-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    text-wrap: nowrap;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    padding: 12px 20px;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    color: var(--color-red);
+    background-color: var(--color-red-10);
+    border-radius: 12px;
+    transition: 0.5s;
+}
+
+.nav-link-first {
+    cursor: default;
+    pointer-events: none;
+    color: var(--color-red);
+    background-color: var(--color-red-10);
+    border-radius: 12px;
+}
+
+/* ======= Main container ======= */
+
+.main-container {
+    background-image: url(../../../assets/images/bg-garland.png);
+    background-color: var(--color-red);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.best-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+}
+
+.best-link {
+    padding: 12px 20px;
+    color: var(--color-white);
+    text-transform: uppercase;
+}
+
+.best-link:hover {
+    cursor: pointer;
+    background-color: var(--color-white-20);
+    border-radius: 12px;
+    transition: 0.5s;
+}
+
+.best-link-first {
+    cursor: default;
+    pointer-events: none;
+    background-color: var(--color-white-20);
+    border-radius: 12px;
+}
+
+.best-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px 12px;
+}
+
+.best-card-image {
+    width: 310px;
+    height: 230px;
+}
+
+.best-card-description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    background-color: var(--color-white);
+    text-transform: uppercase;
+    height: 112px;
+}
+
+.for-work {
+    color: var(--color-purple);
+}
+
+.for-health {
+    color: var(--color-green);
+}
+
+.for-harmony {
+    color: var(--color-pink);
+}
+
+.best-card {
+    position: relative;
+    width: 310px;
+    height: 342px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-radius: 20px;
+}
+
+.best-card:hover {
+    cursor: pointer;
+}
+
+.best-card:hover .best-card-subtitle {
+    color: var(--color-red);
+    transition: 0.5s;
+}
+
+/* ======= Footer ======= */
+
+.footer-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.contact-cards {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-wrap: nowrap;
+    gap: 9px;
+    background-color: var(--color-light);
+    padding: 20px;
+    width: 417.33px;
+    border-radius: 20px;
+}
+
+.contact-card:hover {
+    cursor: pointer;
+}
+
+.contact-card:hover .contact-name,
+.contact-card:hover .contact-description {
+    color: var(--color-red);
+    transition: 0.5s;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.messengers {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 60px;
+}
+
+.messenger {
+    width: 24px;
+    margin: 8px;
+}
+
+.messenger:hover svg {
+    color: var(--color-red);
+    transition: 0.5s;
+}
+
+.rsschool:hover {
+    color: var(--color-red);
+    transition: 0.5s;
+}
