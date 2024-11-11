@@ -158,6 +158,9 @@ img {
 .nav-link-first {
     cursor: default;
     pointer-events: none;
+    color: var(--color-red);
+    background-color: var(--color-red-10);
+    border-radius: 12px;
 }
 
 /* ======= Main container ======= */
@@ -200,6 +203,13 @@ img {
     background-color: var(--color-white-20);
     border-radius: 12px;
     transition: 0.5s;
+}
+
+.best-link-first {
+    cursor: default;
+    pointer-events: none;
+    background-color: var(--color-white-20);
+    border-radius: 12px;
 }
 
 .best-cards {
