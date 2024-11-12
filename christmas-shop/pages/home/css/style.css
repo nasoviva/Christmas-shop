@@ -468,7 +468,7 @@ img {
 
 .contact-cards {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: space-between;
 }
 
@@ -479,7 +479,7 @@ img {
     text-wrap: nowrap;
     gap: 9px;
     background-color: var(--color-light);
-    padding: 20px;
+    padding: 20px 0;
     width: 417.33px;
     border-radius: 20px;
 }
@@ -542,7 +542,6 @@ img {
 
     .contact-card {
         width: 26.08rem;
-        padding: 1.25rem;
     }
 }
 
@@ -586,8 +585,6 @@ img {
 
     .contact-cards {
         flex-direction: column;
-        padding-left: 8px;
-        padding-right: 8px;
     }
 
     .contact-card {
@@ -603,5 +600,14 @@ img {
 
     .about-div {
         flex-direction: column;
+    }
+
+    .about-text {
+        max-width: 20.5rem;
+        margin: 3.75rem 2rem;
+    }
+
+    .about-image {
+        width: 22.75rem;
     }
 }
