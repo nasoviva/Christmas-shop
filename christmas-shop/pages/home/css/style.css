@@ -6,6 +6,20 @@
     box-sizing: border-box;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+div,
+img {
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     --color-red: #FF4646;
     --color-red-10: hsl(0, 100%, 64%, 10%);
@@ -97,7 +111,7 @@ button:hover {
 
 img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -155,6 +169,20 @@ img {
     transition: 0.5s;
 }
 
+.burger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.burger-img {
+    display: none;
+    width: 20px;
+    height: 1px;
+    background-color: var(--color-dark);
+}
+
 /* ======= Main container ======= */
 
 .main-container {
@@ -202,8 +230,13 @@ img {
     height: 528px;
 }
 
+.about-image img {
+    border-radius: 20px;
+}
+
 .about-text {
-    padding-left: 60px;
+    margin: 160px 60px;
+    width: 426px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -303,7 +336,7 @@ img {
 
 .best-cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
 }
 
@@ -497,6 +530,11 @@ img {
         padding-right: 5.125rem;
     }
 
+    .about-text {
+        margin: 10rem 3.75rem;
+        max-width: 426px;
+    }
+
     .about-image {
         width: 39.875rem;
         height: 33rem;
@@ -504,13 +542,42 @@ img {
 
     .contact-card {
         width: 26.08rem;
+        padding: 1.25rem;
     }
 }
 
 @media (max-width: 768px) {
 
     .container {
+        padding-left: 8px;
+        padding-right: 8px;
         max-width: 768px;
+    }
+
+    .nav-list {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .burger-img {
+        display: block;
+    }
+
+    .about-text {
+        max-width: 16.25rem;
+        margin: 6.625rem 3.5rem 6.625rem 3.75rem;
+    }
+
+    .about-image {
+        width: 23.5rem;
+        height: 33rem;
     }
 
     .best-cards {
@@ -521,6 +588,10 @@ img {
         flex-direction: column;
         padding-left: 8px;
         padding-right: 8px;
+    }
+
+    .contact-card {
+        width: 100%;
     }
 }
 
