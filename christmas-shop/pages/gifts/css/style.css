@@ -87,13 +87,13 @@ button {
     border-radius: 20px;
     width: 236px;
     text-transform: uppercase;
+    transition: 0.5s;
 }
 
 button:hover {
     cursor: pointer;
     background-color: var(--color-white);
     color: var(--color-dark);
-    transition: 0.5s;
 }
 
 img {
@@ -146,6 +146,7 @@ img {
 
 .nav-link {
     padding: 12px 20px;
+    transition: 0.5s;
 }
 
 .nav-link:hover {
@@ -153,7 +154,6 @@ img {
     color: var(--color-red);
     background-color: var(--color-red-10);
     border-radius: 12px;
-    transition: 0.5s;
 }
 
 .nav-link-first {
@@ -162,6 +162,20 @@ img {
     color: var(--color-red);
     background-color: var(--color-red-10);
     border-radius: 12px;
+}
+
+.burger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.burger-img {
+    display: none;
+    width: 20px;
+    height: 1px;
+    background-color: var(--color-dark);
 }
 
 /* ======= Main container ======= */
@@ -197,13 +211,14 @@ img {
     padding: 12px 20px;
     color: var(--color-white);
     text-transform: uppercase;
+    text-wrap: nowrap;
+    transition: 0.5s;
 }
 
 .best-link:hover {
     cursor: pointer;
     background-color: var(--color-white-20);
     border-radius: 12px;
-    transition: 0.5s;
 }
 
 .best-link-first {
@@ -216,8 +231,8 @@ img {
 .best-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 12px 12px;
+    justify-content: center;
+    gap: 12px;
 }
 
 .best-card-image {
@@ -266,9 +281,12 @@ img {
     cursor: pointer;
 }
 
+.best-card .best-card-subtitle {
+    transition: 0.5s;
+}
+
 .best-card:hover .best-card-subtitle {
     color: var(--color-red);
-    transition: 0.5s;
 }
 
 /* ======= Footer ======= */
@@ -280,7 +298,7 @@ img {
 
 .contact-cards {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: space-between;
 }
 
@@ -291,7 +309,7 @@ img {
     text-wrap: nowrap;
     gap: 9px;
     background-color: var(--color-light);
-    padding: 20px;
+    padding: 20px 0;
     width: 417.33px;
     border-radius: 20px;
 }
@@ -300,10 +318,14 @@ img {
     cursor: pointer;
 }
 
+.contact-card .contact-name,
+.contact-card .contact-description {
+    transition: 0.5s;
+}
+
 .contact-card:hover .contact-name,
 .contact-card:hover .contact-description {
     color: var(--color-red);
-    transition: 0.5s;
 }
 
 .links {
@@ -324,12 +346,84 @@ img {
     margin: 8px;
 }
 
+.messenger svg {
+    transition: 0.5s;
+}
+
 .messenger:hover svg {
     color: var(--color-red);
+}
+
+.rsschool {
     transition: 0.5s;
 }
 
 .rsschool:hover {
     color: var(--color-red);
-    transition: 0.5s;
 }
+
+@media (max-width: 1440px) {
+
+    .container {
+        max-width: 1440px;
+        padding-left: 5.125rem;
+        padding-right: 5.125rem;
+    }
+
+    .contact-card {
+        width: 26.08rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+        max-width: 768px;
+    }
+
+    .nav-list {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .burger-img {
+        display: block;
+    }
+
+    .best-cards {
+        flex-wrap: wrap;
+    }
+
+    .contact-cards {
+        flex-direction: column;
+    }
+
+    .contact-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .container {
+        max-width: 380px;
+    }
+
+    .best-list {
+        gap: 0;
+    }
+
+    .best-link {
+        padding: 12px 8px;
+    }
+}
+
