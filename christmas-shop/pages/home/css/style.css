@@ -98,7 +98,7 @@ button:hover {
 
 img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -156,6 +156,20 @@ img {
     transition: 0.5s;
 }
 
+.burger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.burger-img {
+    display: none;
+    width: 20px;
+    height: 1px;
+    background-color: var(--color-dark);
+}
+
 /* ======= Main container ======= */
 
 .main-container {
@@ -203,8 +217,13 @@ img {
     height: 528px;
 }
 
+.about-image img {
+    border-radius: 20px;
+}
+
 .about-text {
-    padding-left: 60px;
+    margin: 160px 60px;
+    width: 426px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -304,7 +323,7 @@ img {
 
 .best-cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
 }
 
@@ -436,7 +455,7 @@ img {
 
 .contact-cards {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: space-between;
 }
 
@@ -447,7 +466,7 @@ img {
     text-wrap: nowrap;
     gap: 9px;
     background-color: var(--color-light);
-    padding: 20px;
+    padding: 20px 0;
     width: 417.33px;
     border-radius: 20px;
 }
@@ -489,3 +508,94 @@ img {
     color: var(--color-red);
     transition: 0.5s;
 }
+
+@media (max-width: 1440px) {
+
+    .container {
+        max-width: 1440px;
+        padding-left: 5.125rem;
+        padding-right: 5.125rem;
+    }
+
+    .about-text {
+        margin: 10rem 3.75rem;
+        max-width: 426px;
+    }
+
+    .about-image {
+        width: 39.875rem;
+        height: 33rem;
+    }
+
+    .contact-card {
+        width: 26.08rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+        max-width: 768px;
+    }
+
+    .nav-list {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .burger-img {
+        display: block;
+    }
+
+    .about-text {
+        max-width: 16.25rem;
+        margin: 6.625rem 3.5rem 6.625rem 3.75rem;
+    }
+
+    .about-image {
+        width: 23.5rem;
+        height: 33rem;
+    }
+
+    .best-cards {
+        flex-wrap: wrap;
+    }
+
+    .contact-cards {
+        flex-direction: column;
+    }
+
+    .contact-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .container {
+        max-width: 380px;
+    }
+
+    .about-div {
+        flex-direction: column;
+    }
+
+    .about-text {
+        max-width: 20.5rem;
+        margin: 3.75rem 2rem;
+    }
+
+    .about-image {
+        width: 22.75rem;
+    }
+}
+
