@@ -612,3 +612,9 @@ img {
 
 }
 
+@media (hover: none) {
+    .hover-effect {
+      pointer-events: none;
+    }
+  }
+
