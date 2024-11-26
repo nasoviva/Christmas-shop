@@ -90,15 +90,9 @@ button {
     transition: 0.5s;
 }
 
-button:hover {
-    cursor: pointer;
-    background-color: var(--color-white);
-    color: var(--color-dark);
-}
-
 img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -145,21 +139,6 @@ img {
     transition: 0.5s;
 }
 
-.nav-link:hover {
-    cursor: pointer;
-    color: var(--color-red);
-    background-color: var(--color-red-10);
-    border-radius: 12px;
-}
-
-.nav-link-first {
-    cursor: default;
-    pointer-events: none;
-    color: var(--color-red);
-    background-color: var(--color-red-10);
-    border-radius: 12px;
-}
-
 .burger {
     display: none;
     width: 40px;
@@ -172,117 +151,6 @@ img {
     width: 20px;
     height: 1px;
     background-color: var(--color-dark);
-}
-
-/* ======= Main container ======= */
-
-.main-container {
-    background-image: url(../../../assets/images/bg-garland.png);
-    background-color: var(--color-red);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    overflow-x: hidden;
-    color: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-.best-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    height: 40px;
-}
-
-.best-link {
-    padding: 12px 20px;
-    color: var(--color-white);
-    text-transform: uppercase;
-    text-wrap: nowrap;
-    transition: 0.5s;
-}
-
-.best-link:hover {
-    cursor: pointer;
-    background-color: var(--color-white-20);
-    border-radius: 12px;
-}
-
-.best-link-first {
-    cursor: default;
-    pointer-events: none;
-    background-color: var(--color-white-20);
-    border-radius: 12px;
-}
-
-.best-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-}
-
-.best-card-image {
-    width: 310px;
-    height: 230px;
-}
-
-.best-card-description {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: left;
-    border-radius: 20px;
-    padding-top: 20px;
-    padding-left: 20px;
-    background-color: var(--color-white);
-    text-transform: uppercase;
-    height: 112px;
-}
-
-.for-work {
-    color: var(--color-purple);
-}
-
-.for-health {
-    color: var(--color-green);
-}
-
-.for-harmony {
-    color: var(--color-pink);
-}
-
-.best-card {
-    position: relative;
-    width: 310px;
-    height: 342px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--color-light);
-    color: var(--color-dark);
-    border-radius: 20px;
-}
-
-.best-card:hover {
-    cursor: pointer;
-}
-
-.best-card .best-card-subtitle {
-    transition: 0.5s;
-}
-
-.best-card:hover .best-card-subtitle {
-    color: var(--color-red);
 }
 
 /* ======= Footer ======= */
@@ -310,18 +178,9 @@ img {
     border-radius: 20px;
 }
 
-.contact-card:hover {
-    cursor: pointer;
-}
-
 .contact-card .contact-name,
 .contact-card .contact-description {
     transition: 0.5s;
-}
-
-.contact-card:hover .contact-name,
-.contact-card:hover .contact-description {
-    color: var(--color-red);
 }
 
 .links {
@@ -346,17 +205,72 @@ img {
     transition: 0.5s;
 }
 
-.messenger:hover svg {
-    color: var(--color-red);
-}
-
 .rsschool {
     transition: 0.5s;
 }
 
-.rsschool:hover {
+/* ======= Active ======= */
+
+button:active {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.nav-link:active {
+    color: var(--color-red);
+    background-color: var(--color-red-10);
+    border-radius: 12px;
+}
+
+.contact-card:active .contact-name,
+.contact-card:active .contact-description {
     color: var(--color-red);
 }
+
+.messenger:active svg {
+    color: var(--color-red);
+}
+
+.rsschool:active {
+    color: var(--color-red);
+}
+
+/* ======= Hover ======= */
+
+@media (hover: hover) {
+
+    button:hover {
+        cursor: pointer;
+        background-color: var(--color-white);
+        color: var(--color-dark);
+    }
+
+    .nav-link:hover {
+        cursor: pointer;
+        color: var(--color-red);
+        background-color: var(--color-red-10);
+        border-radius: 12px;
+    }
+
+    .contact-card:hover {
+        cursor: pointer;
+    }
+
+    .contact-card:hover .contact-name,
+    .contact-card:hover .contact-description {
+        color: var(--color-red);
+    }
+
+    .messenger:hover svg {
+        color: var(--color-red);
+    }
+
+    .rsschool:hover {
+        color: var(--color-red);
+    }
+}
+
+/* ======= Viewport width ======= */
 
 @media (max-width: 1440px) {
 
@@ -369,14 +283,11 @@ img {
     .contact-card {
         width: 26.08rem;
     }
+
 }
 
 @media (max-width: 1400px) {
 
-    .container {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
 
     .contact-cards {
         flex-direction: column;
@@ -391,6 +302,8 @@ img {
 @media (max-width: 768px) {
 
     .container {
+        padding-left: 8px;
+        padding-right: 8px;
         max-width: 48rem;
     }
 
@@ -409,14 +322,6 @@ img {
     .burger-img {
         display: block;
     }
-
-}
-
-@media (max-width: 480px) {
-
-    .best-link {
-        padding: 12px 8px;
-    }
 }
 
 @media (max-width: 380px) {
@@ -425,14 +330,6 @@ img {
         max-width: 23.75rem;
     }
 
-    .best-list {
-        gap: 0;
-    }
 }
 
-@media (hover: none) {
-    .hover-effect {
-      pointer-events: none;
-    }
-  }
 
