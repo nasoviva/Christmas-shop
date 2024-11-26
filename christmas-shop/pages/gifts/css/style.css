@@ -428,6 +428,11 @@ img {
     .best-list {
         gap: 0;
     }
-
 }
+
+@media (hover: none) {
+    .hover-effect {
+      pointer-events: none;
+    }
+  }
 
