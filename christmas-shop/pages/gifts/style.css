@@ -1,0 +1,154 @@
+/* ======= Header ======= */
+
+.nav-link-first {
+    cursor: default;
+    pointer-events: none;
+    color: var(--color-red);
+    background-color: var(--color-red-10);
+    border-radius: 12px;
+}
+
+/* ======= Main container ======= */
+
+.main-container {
+    background-image: url(../../assets/images/bg-garland.png);
+    background-color: var(--color-red);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.best-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+}
+
+.best-link {
+    padding: 12px 20px;
+    color: var(--color-white);
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    transition: 0.5s;
+}
+
+.best-link-first {
+    cursor: default;
+    pointer-events: none;
+    background-color: var(--color-white-20);
+    border-radius: 12px;
+}
+
+.best-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.best-card-image {
+    width: 310px;
+    height: 230px;
+}
+
+.best-card-description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    background-color: var(--color-white);
+    text-transform: uppercase;
+    height: 112px;
+}
+
+.for-work {
+    color: var(--color-purple);
+}
+
+.for-health {
+    color: var(--color-green);
+}
+
+.for-harmony {
+    color: var(--color-pink);
+}
+
+.best-card {
+    position: relative;
+    width: 310px;
+    height: 342px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-radius: 20px;
+}
+
+.best-card .best-card-subtitle {
+    transition: 0.5s;
+}
+
+/* ======= Active ======= */
+
+.best-link:active {
+    background-color: var(--color-white-20);
+    border-radius: 12px;
+}
+
+.best-card:active .best-card-subtitle {
+    color: var(--color-red);
+}
+
+/* ======= Hover ======= */
+
+@media (hover: hover) {
+
+    .best-link:hover {
+        cursor: pointer;
+        background-color: var(--color-white-20);
+        border-radius: 12px;
+    }
+
+    .best-card:hover {
+        cursor: pointer;
+    }
+
+    .best-card:hover .best-card-subtitle {
+        color: var(--color-red);
+    }
+}
+
+/* ======= Viewport width ======= */
+
+@media (max-width: 480px) {
+
+    .best-link {
+        padding: 12px 8px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .best-list {
+        gap: 0;
+    }
+}
+
+
