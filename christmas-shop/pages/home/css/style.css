@@ -103,13 +103,9 @@ img {
 }
 
 .container {
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 82px;
-}
-
-.section {
-    width: 100%;
 }
 
 .text {
@@ -215,14 +211,15 @@ img {
 .about-image {
     width: 638px;
     height: 528px;
-}
-
-.about-image img {
+    background-image: url(../../../assets/images/santa.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border-radius: 20px;
 }
 
 .about-text {
-    margin: 160px 60px;
+    margin: 0 60px;
     width: 426px;
     display: flex;
     flex-direction: column;
@@ -512,14 +509,14 @@ img {
 @media (max-width: 1440px) {
 
     .container {
-        max-width: 1440px;
+        max-width: 90rem;
         padding-left: 5.125rem;
         padding-right: 5.125rem;
     }
 
     .about-text {
-        margin: 10rem 3.75rem;
-        max-width: 426px;
+        margin: 0 3.75rem;
+        width: 26.625rem;
     }
 
     .about-image {
@@ -530,6 +527,23 @@ img {
     .contact-card {
         width: 26.08rem;
     }
+
+}
+
+@media (max-width: 1400px) {
+
+    .best-cards {
+        flex-wrap: wrap;
+    }
+
+    .contact-cards {
+        flex-direction: column;
+    }
+
+    .contact-card {
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -537,7 +551,7 @@ img {
     .container {
         padding-left: 8px;
         padding-right: 8px;
-        max-width: 768px;
+        max-width: 48rem;
     }
 
     .nav-list {
@@ -557,24 +571,27 @@ img {
     }
 
     .about-text {
-        max-width: 16.25rem;
-        margin: 6.625rem 3.5rem 6.625rem 3.75rem;
+        width: 16.25rem;
+        margin: 0 3.5rem 0 3.75rem;
     }
 
     .about-image {
         width: 23.5rem;
-        height: 33rem;
     }
+}
 
-    .best-cards {
-        flex-wrap: wrap;
-    }
+@media (max-width: 680px) {
 
-    .contact-cards {
+    .about-div {
         flex-direction: column;
     }
 
-    .contact-card {
+    .about-text {
+        width: auto;
+        margin: 3.75rem 2rem;
+    }
+
+    .about-image {
         width: 100%;
     }
 }
@@ -582,7 +599,7 @@ img {
 @media (max-width: 380px) {
 
     .container {
-        max-width: 380px;
+        max-width: 23.75rem;
     }
 
     .about-div {
@@ -590,12 +607,8 @@ img {
     }
 
     .about-text {
-        max-width: 20.5rem;
-        margin: 3.75rem 2rem;
+        width: 20.5rem;
     }
 
-    .about-image {
-        width: 22.75rem;
-    }
 }
 
