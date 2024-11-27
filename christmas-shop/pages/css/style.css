@@ -376,4 +376,8 @@ button:active {
         max-width: 23.75rem;
     }
 
+    .mobile-menu {
+        padding-top: 254px;
+    }
+
 }
