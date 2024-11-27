@@ -45,7 +45,7 @@
     transition: 0.5s;
 }
 
-.best-link-first {
+.best-link-active {
     cursor: default;
     pointer-events: none;
     background-color: var(--color-white-20);
