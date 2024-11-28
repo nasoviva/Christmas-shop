@@ -515,6 +515,8 @@ const allCards = document.querySelector(".best-link-all");
 const forWorkCards = document.querySelector(".best-link-for-work");
 const forHealthCards = document.querySelector(".best-link-for-health");
 const forHarmonyCards = document.querySelector(".best-link-for-harmony");
+const backgroundPopap = document.querySelector(".no-scroll-background");
+const popap = document.querySelector(".popap");
 
 // Функция для переключения состояния меню и фона
 function toggleMenu() {
@@ -560,6 +562,7 @@ function populateBestCards(category) {
         `;
             bestCards.appendChild(card);
         });
+        populatePopap();
 }
 
 // Обработчик загрузки страницы
@@ -596,3 +599,45 @@ function setActive(activeLink) {
     });
     activeLink.classList.add("best-link-active");
 }
+
+// Функция для переключения состояния попапа и фона
+function togglePopap() {
+    popap.classList.toggle("open");
+    backgroundPopap.classList.toggle("open");
+    if (popap.classList.contains("open")) {
+        body.classList.add("no-scroll");
+    } else {
+        body.classList.remove("no-scroll");
+    }
+}
+
+//Функция для заполнения попап
+function populatePopap() {
+    const cards = document.querySelectorAll(".best-card");
+    cards.forEach(card => {
+        card.addEventListener('click', function () {
+            const nameElement = card.querySelector(".best-card-subtitle");
+            const cardName = nameElement.textContent;
+
+            for (let item of data.items) {
+                if (item.name === cardName) {
+                    console.log(cardName);
+            //         popap.innerHTML = `
+            // `;
+                }
+            }
+            togglePopap();
+
+            // Обработчик клика по крестику
+            const close = document.querySelector(".popap-close");
+            close.addEventListener("click", togglePopap);
+        });
+    });
+}
+
+// Обработчик клика по фону
+backgroundPopap.addEventListener("click", function (event) {
+    if (!popap.contains(event.target) && popap.classList.contains("open")) {
+        togglePopap();
+    }
+});
