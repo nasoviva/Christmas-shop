@@ -45,7 +45,7 @@
     transition: 0.5s;
 }
 
-.best-link-first {
+.best-link-active {
     cursor: default;
     pointer-events: none;
     background-color: var(--color-white-20);
@@ -105,6 +105,30 @@
     transition: 0.5s;
 }
 
+.scrollToTopButton {
+    position: fixed;
+    bottom: 19px;
+    right: 8px;
+    padding: 16px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-red);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: 0.5s;
+}
+
+.scrollToTop-svg {
+    color: var(--color-red);
+}
+
+.show {
+    display: flex;
+}
+
 /* ======= Active ======= */
 
 .best-link:active {
@@ -133,6 +157,7 @@
     .best-card:hover .best-card-subtitle {
         color: var(--color-red);
     }
+
 }
 
 /* ======= Viewport width ======= */

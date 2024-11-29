@@ -141,6 +141,10 @@ img {
 
 .burger {
     display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -148,10 +152,181 @@ img {
 
 .burger-img {
     display: none;
-    width: 20px;
+    position: absolute;
+    width: 21px;
+    height: 1px;
+    background-color: var(--color-dark);
+    transition: transform 0.5s linear;
+}
+
+.burger-img:nth-child(1) {
+    top: 16px;
+
+}
+
+.burger-img:nth-child(2) {
+    top: 24px;
+}
+
+.burger.rotate .burger-img:nth-child(1) {
+    transform: rotate(45deg) translateY(2px) translateX(3px);
+}
+
+.burger.rotate .burger-img:nth-child(2) {
+    transform: rotate(-45deg) translateY(-3px) translateX(4px);
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.mobile-menu {
+    position: fixed;
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 360px;
+    gap: 32px;
+    align-items: center;
+    top: 64px;
+    right: -1500px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    z-index: 998;
+    transition: right 0.5s linear;
+}
+
+.mobile-menu.open {
+    right: 0;
+}
+
+/* ======= Popap ======= */
+
+.no-scroll-background {
+    display: none;
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(226, 26%, 13%, 0);
+    transition: background-color 0.5s linear;
+}
+
+.no-scroll-background.open {
+    display: block;
+    background-color: hsl(226, 26%, 13%, 80%);
+}
+
+.popap {
+    position: relative;
+    position: fixed;
+    top: 50%;
+    left: -3000px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 400px;
+    height: 514px;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-radius: 20px;
+    z-index: 999;
+}
+
+.popap.open {
+    left: 50%;
+}
+
+.popap-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.popap-close-img {
+    width: 30px;
     height: 1px;
     background-color: var(--color-dark);
 }
+
+.popap-close-img:nth-child(1) {
+    transform: rotate(45deg) translateY(1px);
+}
+
+.popap-close-img:nth-child(2) {
+    transform: rotate(-45deg);
+}
+
+.popap-image {
+    width: 100%;
+    height: 230px;
+}
+
+.popap-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--color-white);
+}
+
+.popap-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 20px;
+}
+
+.popap-title {
+    text-transform: uppercase;
+}
+
+.superpower-title {
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.superpowers {
+    display: flex;
+}
+
+.superpower {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.superpower-name {
+    width: 184px;
+}
+
+.superpower-digit {
+    width: 40px;
+}
+
+.superpower-imgages {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 112px;
+}
+
+.superpower-img {
+    width: 16px;
+    height: 16px;
+}
+
 
 /* ======= Footer ======= */
 
@@ -252,6 +427,10 @@ button:active {
         border-radius: 12px;
     }
 
+    .popap-close:hover {
+        cursor: pointer;
+    }
+
     .contact-card:hover {
         cursor: pointer;
     }
@@ -311,17 +490,26 @@ button:active {
         display: none;
     }
 
-    .burger {
+    .burger,
+    .mobile-menu {
         display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
     }
 
     .burger-img {
         display: block;
     }
+}
+
+@media (max-width: 420px) {
+
+    .popap {
+        width: 364px;
+    }
+
+    .superpower-name {
+        width: 148px;
+    }
+
 }
 
 @media (max-width: 380px) {
@@ -330,6 +518,7 @@ button:active {
         max-width: 23.75rem;
     }
 
+    .mobile-menu {
+        padding-top: 254px;
+    }
 }
-
-
