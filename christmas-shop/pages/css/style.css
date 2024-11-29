@@ -127,6 +127,10 @@ img {
     text-wrap: nowrap;
 }
 
+.logo-title {
+    text-wrap: nowrap;
+}
+
 .nav-list {
     display: flex;
     justify-content: space-between;
