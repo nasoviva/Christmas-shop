@@ -511,6 +511,12 @@ const menu = document.querySelector(".mobile-menu");
 const menuLinks = document.querySelectorAll(".mobile-nav-item");
 const body = document.querySelector("body");
 const bestCards = document.querySelector('.best-cards');
+const backgroundPopap = document.querySelector(".no-scroll-background");
+const popap = document.querySelector(".popap");
+const daysElement = document.querySelector('.cta-calendar-days .cta-digital');
+const hoursElement = document.querySelector('.cta-calendar-hours .cta-digital');
+const minutesElement = document.querySelector('.cta-calendar-minutes .cta-digital');
+const secondsElement = document.querySelector('.cta-calendar-seconds .cta-digital');
 
 // Функция для переключения состояния меню и фона
 function toggleMenu() {
@@ -571,6 +577,7 @@ function populateBestCards() {
         `;
         bestCards.appendChild(card);
     }
+    populatePopap();
 }
 
 // Обработчик загрузки страницы
@@ -578,3 +585,130 @@ window.addEventListener('load', populateBestCards);
 
 //вызов функции заполнения карточек
 populateBestCards();
+
+// Функция для переключения состояния попапа и фона
+function togglePopap() {
+    popap.classList.toggle("open");
+    backgroundPopap.classList.toggle("open");
+    if (popap.classList.contains("open")) {
+        body.classList.add("no-scroll");
+    } else {
+        body.classList.remove("no-scroll");
+    }
+}
+
+//Функция для заполнения попап
+function populatePopap() {
+    const cards = document.querySelectorAll(".best-card");
+    cards.forEach(card => {
+        card.addEventListener('click', function () {
+            const nameElement = card.querySelector(".best-card-subtitle");
+            const cardName = nameElement.textContent;
+
+            for (let item of data.items) {
+                if (item.name === cardName) {
+
+                    // Функция для создания изображений суперсил
+                    function generateSuperpowerImages(count) {
+                        const container = document.createElement('div');
+                        container.className = 'superpower-imgages';
+                        for (let i = 0; i < count; i++) {
+                            const img = document.createElement('img');
+                            img.src = '../../assets/images/snowflake.png';
+                            img.alt = 'snowflake';
+                            img.className = 'superpower-img';
+                            container.appendChild(img);
+                        }
+                        return container.innerHTML;
+                    }
+
+                    popap.innerHTML = `
+                    <div class="popap-close">
+                        <div class="popap-close-img"></div>
+                        <div class="popap-close-img"></div>
+                    </div>
+                    <div class="popap-image"><img src="${item.img}" alt="${item.category}"></div>
+                    <div class="popap-text">
+                        <div class="popap-info">
+                            <div class="popap-title ${item.class} text">${item.category}</div>
+                            <h4 class="popap-subtitle">${item.name}</h4>
+                            <div class="popap-description">${item.description}</div>
+                        </div>
+                        <div class="popap-superpowers">
+                            <div class="superpower-title text">Adds superpowers to:</div>
+                            <div class="superpower">
+                                <div class="superpower-name">Live</div>
+                                <div class="superpower-digit">${item.superpowers.live}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.live.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                            <div class="superpower">
+                                <div class="superpower-name">Create</div>
+                                <div class="superpower-digit">${item.superpowers.create}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.create.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                            <div class="superpower">
+                                <div class="superpower-name">Love</div>
+                                <div class="superpower-digit">${item.superpowers.love}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.love.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                            <div class="superpower">
+                                <div class="superpower-name">Dream</div>
+                                <div class="superpower-digit">${item.superpowers.dream}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.dream.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            `;
+                }
+            }
+            togglePopap();
+
+            // Обработчик клика по крестику
+            const close = document.querySelector(".popap-close");
+            close.addEventListener("click", togglePopap);
+        });
+    });
+}
+
+// Обработчик клика по фону
+backgroundPopap.addEventListener("click", function (event) {
+    if (!popap.contains(event.target) && popap.classList.contains("open")) {
+        togglePopap();
+    }
+});
+
+function updateCountdown() {
+    const nextNewYear = new Date(Date.UTC(new Date().getUTCFullYear() + 1, 0, 1, 0, 0, 0, 0));
+    const now = new Date();
+    const timeDifference = nextNewYear - now;
+
+    if (timeDifference > 0) {
+        const totalSeconds = Math.floor(timeDifference / 1000);
+        const days = Math.floor(totalSeconds / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        daysElement.textContent = days;
+        hoursElement.textContent = hours;
+        minutesElement.textContent = minutes;
+        secondsElement.textContent = seconds;
+    } else {
+        daysElement.textContent = 0;
+        hoursElement.textContent = 0;
+        minutesElement.textContent = 0;
+        secondsElement.textContent = 0;
+    }
+}
+
+// Запуск таймера, обновляющегося каждую секунду
+setInterval(updateCountdown, 1000);
+updateCountdown();

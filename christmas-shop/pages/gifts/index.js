@@ -517,6 +517,7 @@ const forHealthCards = document.querySelector(".best-link-for-health");
 const forHarmonyCards = document.querySelector(".best-link-for-harmony");
 const backgroundPopap = document.querySelector(".no-scroll-background");
 const popap = document.querySelector(".popap");
+const scrollToTopButton = document.querySelector('.scrollToTopButton');
 
 // Функция для переключения состояния меню и фона
 function toggleMenu() {
@@ -562,7 +563,7 @@ function populateBestCards(category) {
         `;
             bestCards.appendChild(card);
         });
-        populatePopap();
+    populatePopap();
 }
 
 // Обработчик загрузки страницы
@@ -621,9 +622,66 @@ function populatePopap() {
 
             for (let item of data.items) {
                 if (item.name === cardName) {
-                    console.log(cardName);
-            //         popap.innerHTML = `
-            // `;
+
+                    // Функция для создания изображений суперсил
+                    function generateSuperpowerImages(count) {
+                        const container = document.createElement('div');
+                        container.className = 'superpower-imgages';
+                        for (let i = 0; i < count; i++) {
+                            const img = document.createElement('img');
+                            img.src = '../../assets/images/snowflake.png';
+                            img.alt = 'snowflake';
+                            img.className = 'superpower-img';
+                            container.appendChild(img);
+                        }
+                        return container.innerHTML;
+                    }
+
+                    popap.innerHTML = `
+                    <div class="popap-close">
+                        <div class="popap-close-img"></div>
+                        <div class="popap-close-img"></div>
+                    </div>
+                    <div class="popap-image"><img src="${item.img}" alt="${item.category}"></div>
+                    <div class="popap-text">
+                        <div class="popap-info">
+                            <div class="popap-title ${item.class} text">${item.category}</div>
+                            <h4 class="popap-subtitle">${item.name}</h4>
+                            <div class="popap-description">${item.description}</div>
+                        </div>
+                        <div class="popap-superpowers">
+                            <div class="superpower-title text">Adds superpowers to:</div>
+                            <div class="superpower">
+                                <div class="superpower-name">Live</div>
+                                <div class="superpower-digit">${item.superpowers.live}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.live.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                            <div class="superpower">
+                                <div class="superpower-name">Create</div>
+                                <div class="superpower-digit">${item.superpowers.create}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.create.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                            <div class="superpower">
+                                <div class="superpower-name">Love</div>
+                                <div class="superpower-digit">${item.superpowers.love}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.love.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                            <div class="superpower">
+                                <div class="superpower-name">Dream</div>
+                                <div class="superpower-digit">${item.superpowers.dream}</div>
+                                <div class="superpower-imgages">
+                                ${generateSuperpowerImages(parseInt(item.superpowers.dream.replace('+', ''), 10) / 100)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            `;
                 }
             }
             togglePopap();
@@ -640,4 +698,21 @@ backgroundPopap.addEventListener("click", function (event) {
     if (!popap.contains(event.target) && popap.classList.contains("open")) {
         togglePopap();
     }
+});
+
+// Показать или скрыть кнопку при прокрутке
+window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768 && window.scrollY > 300) {
+        scrollToTopButton.classList.add('show');
+    } else {
+        scrollToTopButton.classList.remove('show');
+    }
+});
+
+// Прокрутка наверх при клике на кнопку
+scrollToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
