@@ -517,8 +517,82 @@ const daysElement = document.querySelector('.cta-calendar-days .cta-digital');
 const hoursElement = document.querySelector('.cta-calendar-hours .cta-digital');
 const minutesElement = document.querySelector('.cta-calendar-minutes .cta-digital');
 const secondsElement = document.querySelector('.cta-calendar-seconds .cta-digital');
+const sliderList = document.querySelector('.slider-list');
+const prevButton = document.querySelector('.prev-paginator');
+const nextButton = document.querySelector('.next-paginator');
+const totalSlides = document.querySelectorAll('.slider-item').length;
+const slider = document.querySelector('.slider');
+let sliderWidth = slider.offsetWidth;
+let currentIndex = 0;
+let slideWidth = 0;
+let screenWidth = 0;
+let slideScreenWidth = 0;
 
-// Функция для переключения состояния меню и фона
+/* ======= Slider ======= */
+
+// Function to update the slider shift based on the screen width
+function updateSlidesToMove() {
+    screenWidth = sliderList.offsetWidth;
+    sliderWidth = slider.offsetWidth;
+    slideScreenWidth = 1993 - screenWidth;
+    if (sliderWidth > 768) {
+        slideWidth = slideScreenWidth / 3;
+    } else {
+        slideWidth = slideScreenWidth / 6;
+    }
+}
+
+// Function to update the button states
+function updateButtonsState() {
+    if (currentIndex < slideWidth - 1) {
+        prevButton.classList.add('inactive');
+    } else {
+        prevButton.classList.remove('inactive');
+    }
+    if (currentIndex >= slideScreenWidth) {
+        nextButton.classList.add('inactive');
+    } else {
+        nextButton.classList.remove('inactive');
+    }
+}
+
+// Function to shift the slider by a specified number of pixels
+function moveSlider(direction) {
+    if (direction === 'next') {
+        currentIndex += slideWidth;
+    } else if (direction === 'prev') {
+        currentIndex -= slideWidth;
+    }
+    if (currentIndex < 0) {
+        currentIndex = 0;
+    }
+    sliderList.style.transform = `translateX(-${currentIndex}px)`;
+    updateButtonsState();
+}
+
+// Event handlers for the buttons
+nextButton.addEventListener('click', () => {
+    moveSlider('next');
+});
+
+prevButton.addEventListener('click', () => {
+    moveSlider('prev');
+});
+
+// Window resize event handler
+window.addEventListener('resize', () => {
+    updateSlidesToMove();
+    currentIndex = 0;
+    sliderList.style.transform = `translateX(0)`;
+    updateButtonsState();
+});
+
+updateSlidesToMove();
+updateButtonsState();
+
+/* ======= Menu ======= */
+
+// Function to toggle the state of the menu and background
 function toggleMenu() {
     burger.classList.toggle("rotate");
     menu.classList.toggle("open");
@@ -529,10 +603,10 @@ function toggleMenu() {
     }
 }
 
-// Обработчик клика по бургер-меню
+// Click event handler for the burger menu
 burger.addEventListener("click", toggleMenu);
 
-// Обработчики кликов на ссылки в меню
+// Click event handlers for the menu links
 menuLinks.forEach(function (link) {
     link.addEventListener("click", function () {
         if (menu.classList.contains("open")) {
@@ -541,7 +615,10 @@ menuLinks.forEach(function (link) {
     });
 });
 
-// Функция перемешивания массива (алгоритм Фишера-Йейтса)
+
+/* ======= Best Cards ======= */
+
+// Function to shuffle the array
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -550,7 +627,7 @@ function shuffle(array) {
     return array;
 }
 
-// Функция дублирования данных, чтобы перемешать массив
+// Function to duplicate data in order to shuffle the array
 function prepareData() {
     const duplicatedItems = [];
     duplicatedItems.push(...(shuffle([...data.items])));
@@ -558,8 +635,7 @@ function prepareData() {
     console.log(data.items.name);
 }
 
-
-//Функция заполнения карточек
+//Function to populate the cards
 function populateBestCards() {
     prepareData();
     bestCards.innerHTML = '';
@@ -580,13 +656,13 @@ function populateBestCards() {
     populatePopap();
 }
 
-// Обработчик загрузки страницы
+// Page load event handler
 window.addEventListener('load', populateBestCards);
 
-//вызов функции заполнения карточек
-populateBestCards();
+/* ======= Popap ======= */
 
-// Функция для переключения состояния попапа и фона
+
+// Function to toggle the state of the popup and background
 function togglePopap() {
     popap.classList.toggle("open");
     backgroundPopap.classList.toggle("open");
@@ -597,7 +673,7 @@ function togglePopap() {
     }
 }
 
-//Функция для заполнения попап
+// Function to populate the popup
 function populatePopap() {
     const cards = document.querySelectorAll(".best-card");
     cards.forEach(card => {
@@ -608,7 +684,7 @@ function populatePopap() {
             for (let item of data.items) {
                 if (item.name === cardName) {
 
-                    // Функция для создания изображений суперсил
+                    // Function to create superpower images
                     function generateSuperpowerImages(count) {
                         const container = document.createElement('div');
                         container.className = 'superpower-imgages';
@@ -671,19 +747,23 @@ function populatePopap() {
             }
             togglePopap();
 
-            // Обработчик клика по крестику
+            // Click event handler for the close button
             const close = document.querySelector(".popap-close");
             close.addEventListener("click", togglePopap);
         });
     });
 }
 
-// Обработчик клика по фону
+// Click event handler for the background
 backgroundPopap.addEventListener("click", function (event) {
     if (!popap.contains(event.target) && popap.classList.contains("open")) {
         togglePopap();
     }
 });
+
+populateBestCards();
+
+/* ======= Timer ======= */
 
 function updateCountdown() {
     const nextNewYear = new Date(Date.UTC(new Date().getUTCFullYear() + 1, 0, 1, 0, 0, 0, 0));
@@ -709,6 +789,5 @@ function updateCountdown() {
     }
 }
 
-// Запуск таймера, обновляющегося каждую секунду
 setInterval(updateCountdown, 1000);
 updateCountdown();
