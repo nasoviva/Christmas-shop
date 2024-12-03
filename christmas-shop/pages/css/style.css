@@ -187,9 +187,8 @@ img {
 .mobile-menu {
     position: fixed;
     display: none;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
-    padding-top: 360px;
     gap: 32px;
     align-items: center;
     top: 64px;
@@ -523,7 +522,4 @@ button:active {
         max-width: 23.75rem;
     }
 
-    .mobile-menu {
-        padding-top: 254px;
-    }
 }
