@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><a href="https://nasoviva.github.io/Christmas-shop/christmas-shop/pages/gifts/index.html">Christmas-shop</a></h1>
+  <h1><a href="https://nasoviva.github.io/Christmas-shop/christmas-shop/pages/home/index.html">Christmas-shop</a></h1>
 </div>
 <br>
 <p align="center">Christmas Shop is a responsive and interactive web application designed for browsing and purchasing Christmas-themed products.</p>
